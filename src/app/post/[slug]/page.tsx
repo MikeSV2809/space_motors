@@ -5,8 +5,13 @@ import { Content } from './components/content';
 import { Suspense } from 'react';
 import { LoadingPost } from './components/loading';
 
-export async function generateMetadata({ params: { slug } }: { params: { slug: string } }): Promise<Metadata> {
+interface PropsParams {
+    params: { slug: string };
+}
+
+export async function generateMetadata({ params }: PropsParams): Promise<Metadata> {
     try {
+        const { slug } = params;
         const { objects }: PostProps = await getItemBySlug(slug)
             .catch(() => {
                 return {
@@ -42,9 +47,10 @@ export async function generateMetadata({ params: { slug } }: { params: { slug: s
     }
 }
 
-export default async function Page({ params: { slug } }: { params: { slug: string } }) {
+export default async function Page({ params }: PropsParams) {
 
-
+    const { slug } = params;
+    
     return (
         <>
             <Suspense fallback={<LoadingPost />}>
