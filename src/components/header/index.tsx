@@ -32,7 +32,7 @@ export function Header() {
                                 src="/logo.png"
                                 alt="Logo Space Motors"
                                 width={80}
-                                height={55}
+                                height={60}
                                 priority
                             />
                         </Link>
