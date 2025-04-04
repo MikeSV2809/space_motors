@@ -6,12 +6,12 @@ import { Suspense } from 'react';
 import { LoadingPost } from './components/loading';
 
 interface PropsParams {
-    params: { slug: string };
+    params: Promise<{ slug: string }>;
 }
 
 export async function generateMetadata({ params }: PropsParams): Promise<Metadata> {
     try {
-        const { slug } = params;
+        const { slug } = await params;
         const { objects }: PostProps = await getItemBySlug(slug)
             .catch(() => {
                 return {
@@ -49,8 +49,8 @@ export async function generateMetadata({ params }: PropsParams): Promise<Metadat
 
 export default async function Page({ params }: PropsParams) {
 
-    const { slug } = params;
-    
+    const { slug } = await params;
+
     return (
         <>
             <Suspense fallback={<LoadingPost />}>
