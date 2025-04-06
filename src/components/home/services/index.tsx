@@ -5,7 +5,7 @@ import Image from 'next/image'
 export function Services({ object }: HomeProps) {
     return (
         <>
-            <section className={styles.containerAbout} id="servicos">
+            <section className={styles.containerAbout}>
                 <article className={styles.innerAbout}>
                     <h1 className={styles.title}>Sobre</h1>
                     <p>{object.metadata.about.description}</p>
@@ -23,7 +23,7 @@ export function Services({ object }: HomeProps) {
                 </div>
             </section>
 
-            <h2 className={styles.servicesTitle}>Conheça nossos serviços</h2>
+            <h2 className={styles.servicesTitle} id="servicos">Conheça nossos serviços</h2>
 
             <section className={styles.services}>
 
