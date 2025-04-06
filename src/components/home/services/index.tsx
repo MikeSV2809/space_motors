@@ -23,23 +23,25 @@ export function Services({ object }: HomeProps) {
                 </div>
             </section>
 
-            <h2 className={styles.servicesTitle} id="servicos">Conheça nossos serviços</h2>
+            <div id="servicos">
+                <h2 className={styles.servicesTitle}>Conheça nossos serviços</h2>
+            </div>
 
             <section className={styles.services}>
 
                 {object.metadata.services.map(service => (
                     <article key={service.description} className={styles.service}>
-                      <div className={styles.innerService}>
-                        <Image
-                            className={styles.imageService}
-                            alt="Imagem do serviço"
-                            quality={100}
-                            fill={true}
-                            src={service.image.url}
-                            sizes="(max-width: 480px) 100vw, (max-width: 1024px) 75vw, 50vw"
-                        />
-                      </div>
-                      <p>{service.description}</p>
+                        <div className={styles.innerService}>
+                            <Image
+                                className={styles.imageService}
+                                alt="Imagem do serviço"
+                                quality={100}
+                                fill={true}
+                                src={service.image.url}
+                                sizes="(max-width: 480px) 100vw, (max-width: 1024px) 75vw, 50vw"
+                            />
+                        </div>
+                        <p>{service.description}</p>
                     </article>
                 ))}
 
